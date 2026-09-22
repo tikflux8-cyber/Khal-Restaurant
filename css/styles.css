@@ -512,7 +512,7 @@ body {
 }
 .wheel-wing {
   position: absolute;
-  width: 400px;
+  width: 600px;
   height: auto;
   z-index: 0;
   top: 50%;

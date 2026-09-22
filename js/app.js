@@ -335,12 +335,12 @@ LIGHTBOX
     var radius = 170;
 
     var segments = [
-      { text: 'حظ أوفر حاول مرة أخرى', color: '#3d2b1f', prize: 'nothing' },
+      { text: 'حظ أوفر', color: '#2c1810', prize: 'nothing' },
       { text: 'خصم 50%', color: '#c9a84c', prize: 'discount' },
-      { text: 'حظ أوفر حاول مرة أخرى', color: '#3d2b1f', prize: 'nothing' },
-      { text: 'وجبة مجانية', color: '#8b6914', prize: 'freemeal' },
-      { text: 'حظ أوفر حاول مرة أخرى', color: '#3d2b1f', prize: 'nothing' },
-      { text: 'حظ أوفر حاول مرة أخرى', color: '#3d2b1f', prize: 'nothing' }
+      { text: 'حظ أوفر', color: '#1a1a2e', prize: 'nothing' },
+      { text: 'وجبة مجانية', color: '#d4a574', prize: 'freemeal' },
+      { text: 'حظ أوفر', color: '#2c1810', prize: 'nothing' },
+      { text: 'حظ أوفر', color: '#1a1a2e', prize: 'nothing' }
     ];
 
     var segAngle = (2 * Math.PI) / segments.length;
@@ -349,37 +349,84 @@ LIGHTBOX
 
     function drawWheel(rotation) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Outer ring decoration
+      for (var d = 0; d < 24; d++) {
+        var dotAngle = (d / 24) * Math.PI * 2;
+        var dotX = cx + Math.cos(dotAngle) * (radius + 8);
+        var dotY = cy + Math.sin(dotAngle) * (radius + 8);
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
+        ctx.fillStyle = d % 2 === 0 ? '#c9a84c' : '#f5e6c8';
+        ctx.fill();
+      }
+
       for (var i = 0; i < segments.length; i++) {
         var startA = rotation + i * segAngle;
         var endA = startA + segAngle;
+
+        // Segment gradient
+        var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+        grad.addColorStop(0, lightenColor(segments[i].color, 30));
+        grad.addColorStop(1, segments[i].color);
 
         ctx.beginPath();
         ctx.moveTo(cx, cy);
         ctx.arc(cx, cy, radius, startA, endA);
         ctx.closePath();
-        ctx.fillStyle = segments[i].color;
+        ctx.fillStyle = grad;
         ctx.fill();
-        ctx.strokeStyle = '#1a1a1a';
+
+        // Segment border
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(startA) * radius, cy + Math.sin(startA) * radius);
+        ctx.strokeStyle = 'rgba(245,230,200,0.3)';
         ctx.lineWidth = 2;
         ctx.stroke();
 
+        // Text
         ctx.save();
         ctx.translate(cx, cy);
         ctx.rotate(startA + segAngle / 2);
         ctx.textAlign = 'center';
         ctx.fillStyle = '#f5e6c8';
-        ctx.font = 'bold 14px Tajawal, sans-serif';
-        ctx.fillText(segments[i].text, radius * 0.55, 5);
+        ctx.font = 'bold 15px Tajawal, sans-serif';
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        ctx.shadowBlur = 4;
+        ctx.fillText(segments[i].text, radius * 0.58, 5);
+        ctx.shadowBlur = 0;
         ctx.restore();
       }
 
+      // Center circle
+      var centerGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 28);
+      centerGrad.addColorStop(0, '#f5e6c8');
+      centerGrad.addColorStop(0.5, '#c9a84c');
+      centerGrad.addColorStop(1, '#8b6914');
       ctx.beginPath();
-      ctx.arc(cx, cy, 20, 0, 2 * Math.PI);
-      ctx.fillStyle = '#1a1a1a';
+      ctx.arc(cx, cy, 28, 0, Math.PI * 2);
+      ctx.fillStyle = centerGrad;
       ctx.fill();
-      ctx.strokeStyle = '#c9a84c';
+      ctx.strokeStyle = '#f5e6c8';
       ctx.lineWidth = 3;
       ctx.stroke();
+
+      // Center text
+      ctx.fillStyle = '#1a1a1a';
+      ctx.font = 'bold 12px Tajawal, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('خال', cx, cy);
+    }
+
+    function lightenColor(hex, percent) {
+      var num = parseInt(hex.replace('#', ''), 16);
+      var amt = Math.round(2.55 * percent);
+      var R = Math.min(255, (num >> 16) + amt);
+      var G = Math.min(255, ((num >> 8) & 0x00FF) + amt);
+      var B = Math.min(255, (num & 0x0000FF) + amt);
+      return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
     }
 
     drawWheel(0);

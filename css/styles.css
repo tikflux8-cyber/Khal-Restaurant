@@ -469,7 +469,34 @@ body {
 .wheel-section {
   padding: 80px 20px;
   text-align: center;
-  background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
+  background:
+    radial-gradient(circle at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(139,105,20,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at center, rgba(201,168,76,0.05) 0%, transparent 70%);
+  position: relative;
+  overflow: hidden;
+}
+.wheel-section::before {
+  content: '🎰';
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 3rem;
+  opacity: 0.15;
+  animation: float 3s ease-in-out infinite;
+}
+.wheel-section::after {
+  content: '🎲';
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  font-size: 3rem;
+  opacity: 0.15;
+  animation: float 3s ease-in-out infinite reverse;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 .wheel-container {
   display: flex;
@@ -483,45 +510,111 @@ body {
   width: 380px;
   height: 380px;
 }
+.wheel-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(201,168,76,0.3), rgba(139,105,20,0.1), rgba(201,168,76,0.3), rgba(139,105,20,0.1), rgba(201,168,76,0.3));
+  animation: glowSpin 4s linear infinite;
+  z-index: 0;
+}
+@keyframes glowSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .wheel-pointer {
   position: absolute;
-  top: -18px;
+  top: -22px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2.5rem;
-  color: var(--secondary);
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 36px solid var(--secondary);
   z-index: 10;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+.wheel-pointer::after {
+  content: '';
+  position: absolute;
+  top: -38px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 3px solid var(--secondary);
 }
 #wheel-canvas {
   border-radius: 50%;
-  box-shadow: 0 0 0 8px var(--secondary), 0 0 0 12px var(--primary), 0 0 40px rgba(201,168,76,0.4);
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 0 0 6px var(--secondary),
+    0 0 0 10px var(--primary),
+    0 0 0 14px var(--gold),
+    0 0 0 16px var(--primary),
+    0 0 60px rgba(201,168,76,0.5),
+    inset 0 0 30px rgba(0,0,0,0.2);
 }
 .wheel-spin-btn {
-  padding: 16px 40px;
-  font-size: 1.2rem;
+  padding: 18px 50px;
+  font-size: 1.3rem;
   font-family: 'Tajawal', sans-serif;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
   color: var(--primary);
-  border: none;
+  border: 3px solid var(--secondary);
   border-radius: 50px;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 6px 20px rgba(201,168,76,0.4);
+  box-shadow:
+    0 6px 20px rgba(201,168,76,0.4),
+    0 0 30px rgba(201,168,76,0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.wheel-spin-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shine 2s infinite;
+}
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 .wheel-spin-btn:hover:not(:disabled) {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(201,168,76,0.6);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow:
+    0 10px 35px rgba(201,168,76,0.6),
+    0 0 50px rgba(201,168,76,0.3);
+}
+.wheel-spin-btn:active:not(:disabled) {
+  transform: translateY(-2px) scale(1.04);
 }
 .wheel-spin-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 .wheel-info {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--paper-dark);
-  opacity: 0.8;
+  opacity: 0.9;
+  padding: 10px 25px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 25px;
+  z-index: 1;
 }
 .wheel-result {
   position: fixed;

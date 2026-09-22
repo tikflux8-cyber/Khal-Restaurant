@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>مطعم خال</title>
+  <meta name="description" content="مطعم خال - أشهى المأكولات العربية والشرقية">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c9a84c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="مطعم خال">
+  <link rel="apple-touch-icon" href="images/logo.png">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo" id="preloader-logo">
+        <img src="images/logo.png" alt="مطعم خال" class="preloader-logo-img">
+      </div>
+      <div class="preloader-name" id="preloader-name"></div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-logo">
+        <img src="images/logo.png" alt="مطعم خال" class="logo-img">
+        <span class="logo-text" id="nav-restaurant-name"></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#hero" class="nav-link active">الرئيسية</a>
+        <a href="#menu-section" class="nav-link">القائمة</a>
+        <a href="#gallery" class="nav-link">المعرض</a>
+        <a href="#about" class="nav-link">من نحن</a>
+        <a href="#contact" class="nav-link">تواصل معنا</a>
+      </div>
+      <div class="nav-right">
+        <a href="#menu-section" class="nav-order-btn">اطلب الآن</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="#hero" class="mobile-link">الرئيسية</a>
+      <a href="#menu-section" class="mobile-link">القائمة</a>
+      <a href="#gallery" class="mobile-link">المعرض</a>
+      <a href="#about" class="mobile-link">من نحن</a>
+      <a href="#contact" class="mobile-link">تواصل معنا</a>
+      <a href="#menu-section" class="mobile-link order-link">اطلب الآن</a>
+    </div>
+  </div>
+
+    <!-- Marquee Bar -->
+  <div class="marquee-bar">
+    <div class="marquee-run">
+      <div class="marquee-group">
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+        <div class="marquee-cycle"><span class="marquee-item"><span>اربيل - مخيم - دارشكران مقابيل مدرسة برور</span><b>🍕</b></span><span class="marquee-item"><span>يومياً من 11 صباحًا إلى 12 صباحًا</span><b>🍔</b></span><span class="marquee-item"><span>الاستلام والتوصيل متاحان</span><b>🛵</b></span></div>
+      </div>
+    </div>
+  </div>
+<!-- Fixed Logo -->
+  <a href="#hero" class="fixed-logo" id="fixed-logo">
+    <img src="images/logo.png" alt="مطعم خال">
+  </a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-logo" id="hero-logo">
+        <img src="images/logo.png" alt="مطعم خال" class="hero-logo-img">
+      </div>
+      <h1 class="hero-title" id="hero-title"></h1>
+      <p class="hero-subtitle" id="hero-subtitle"></p>
+      <div class="hero-buttons">
+        <a href="#menu-section" class="btn btn-primary">
+          <span>📖</span> استكشف القائمة
+        </a>
+        <a href="#menu-section" class="btn btn-gold">
+          <span>🛒</span> اطلب الآن
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <span>📞</span> تواصل معنا
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-indicator">
+        <span>↓</span>
+      </div>
+    </div>
+  </section>
+
+      <!-- Menu Book Section -->
+  <section id="menu-section" class="menu-section">
+    <div class="section-header">
+      <div class="ornament">✦</div>
+      <h2 class="section-title">دفتر القائمة</h2>
+      <p class="section-subtitle">تصفّح قائمتنا كالكتاب الفاخر</p>
+      <div class="ornament">✦</div>
+    </div>
+
+    <div class="book-container" id="book-container">
+      <div class="book-wrapper">
+        <div class="book" id="menu-book">
+          <!-- Book will be generated by JS -->
+        </div>
+      </div>
+
+      <!-- Book Controls -->
+      <div class="book-controls">
+        <button class="book-btn book-btn-next" id="book-next" aria-label="التالي">
+          <span>→</span> التالي
+        </button>
+        <span class="page-indicator" id="page-indicator"></span>
+        <button class="book-btn book-btn-prev" id="book-prev" aria-label="السابق">
+          السابق <span>←</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery-section">
+    <div class="section-header">
+      <div class="ornament">✦</div>
+      <h2 class="section-title">المعرض</h2>
+      <p class="section-subtitle">لحظات من أجواء المطعم</p>
+      <div class="ornament">✦</div>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <!-- Lucky Wheel Section -->
+  <section id="wheel-section" class="wheel-section">
+    <div class="section-header">
+      <div class="ornament">✦</div>
+      <h2 class="section-title">عجلة الحظ</h2>
+      <p class="section-subtitle">جرب حظك واربح خصومات ووجبات مجانية</p>
+      <div class="ornament">✦</div>
+    </div>
+    <div class="wheel-container">
+      <div class="wheel-wrapper">
+        <div class="wheel-pointer">▼</div>
+        <canvas id="wheel-canvas" width="380" height="380"></canvas>
+      </div>
+      <button class="wheel-spin-btn" id="wheel-spin-btn">🎯 اضغط للدوران</button>
+      <p class="wheel-info" id="wheel-info"></p>
+    </div>
+  </section>
+
+<!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <div class="about-frame">
+          <div class="about-image-wrapper">
+            <img src="images/about.jpeg" alt="مطعم خال" class="about-image">
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="ornament">✦</div>
+        <h2 class="about-title" id="about-title"></h2>
+        <div class="about-divider"></div>
+        <p class="about-text" id="about-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="section-header">
+      <div class="ornament">✦</div>
+      <h2 class="section-title">تواصل معنا</h2>
+      <p class="section-subtitle">نسعد بخدمتكم</p>
+      <div class="ornament">✦</div>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>للحجز والاستفسار</h3>
+        <a href="tel:" class="contact-phone" id="contact-phone"></a>
+        <div class="contact-actions">
+          <a href="#" class="contact-btn contact-btn-call" id="contact-call">
+            <span>📞</span> اتصل الآن
+          </a>
+          <a href="#" class="contact-btn contact-btn-whatsapp" id="contact-whatsapp">
+            <span>💬</span> واتساب - خليل
+          </a>
+          <a href="#" class="contact-btn contact-btn-whatsapp" id="contact-whatsapp2">
+            <span>💬</span> واتساب - حميد
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>العنوان</h3>
+        <p id="contact-address"></p>
+        <a href="#" class="contact-btn contact-btn-map" id="contact-map">
+          <span>🗺️</span> خرائط جوجل
+        </a>
+      </div>
+    </div>
+
+    <div class="social-links" id="social-links">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo.png" alt="مطعم خال" class="logo-img">
+            <span class="footer-name" id="footer-name"></span>
+          </div>
+          <p class="footer-desc" id="footer-desc"></p>
+        </div>
+        <div class="footer-links">
+          <h4>روابط سريعة</h4>
+          <a href="#hero">الرئيسية</a>
+          <a href="#menu-section">القائمة</a>
+          <a href="#gallery">المعرض</a>
+          <a href="#about">من نحن</a>
+          <a href="#contact">تواصل معنا</a>
+        </div>
+        <div class="footer-contact">
+          <h4>معلومات التواصل</h4>
+          <p id="footer-phone"></p>
+          <p id="footer-address"></p>
+          <p id="footer-hours"></p>
+        </div>
+        <div class="footer-social" id="footer-social">
+          <!-- Generated by JS -->
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="footer-year"></span> <span id="footer-name-bottom"></span>. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="إغلاق">✕</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <!-- Emoji Container -->
+  <div class="emoji-container" id="emoji-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
